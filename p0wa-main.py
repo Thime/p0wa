@@ -7,7 +7,7 @@ import webbrowser
 import re
 import pywhatkit as kit
 
-openai.api_key = "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"
+openai.api_key = ""
 
 fecha_hora_actual = datetime.now()
 fecha_hora_str = fecha_hora_actual.strftime("%d-%m-%Y %H:%M:%S")
