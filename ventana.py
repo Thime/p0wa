@@ -120,3 +120,46 @@ def ventana(texto):
 
     # Mostrar la ventana
     ventana.mainloop()
+
+
+def close_window():
+    root.destroy()
+
+def get_input():
+    global API
+    input_text = input_entry.get()
+    API=input_text
+    close_window()
+    
+
+def ventana_inicio():
+    global input_entry, root,API
+
+    root = tk.Tk()
+    root.title("Ventana")
+
+    width, height = 300, 200
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+    x = (screen_width - width) // 2
+    y = (screen_height - height) // 2
+    root.geometry(f"{width}x{height}+{x}+{y}")
+
+    root.iconbitmap("icon.ico")
+    # Agregar un widget de entrada
+    input_label = tk.Label(root, text="Ingrese API:")
+    input_label.pack(pady=10)
+    input_entry = tk.Entry(root, width=30)
+    input_entry.pack()
+
+    # Agregar un botón para obtener la entrada y cerrar la ventana
+    button = tk.Button(root, text="Aceptar", command=get_input)
+    button.pack(pady=10)
+
+    root.mainloop()
+
+    return API
+
+    
+
+  

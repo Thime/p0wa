@@ -1,13 +1,13 @@
 import openai
 import speech_recognition as sr
 from datetime import datetime
-from ventana import ventana
+from ventana import ventana , ventana_inicio
 from nltk.corpus import stopwords
 import webbrowser
 import re
 import pywhatkit as kit
 
-openai.api_key = ""
+
 
 fecha_hora_actual = datetime.now()
 fecha_hora_str = fecha_hora_actual.strftime("%d-%m-%Y %H:%M:%S")
@@ -108,13 +108,19 @@ f = open("stopwords.txt", "r")
 stopwords = f.read()
 f.close()
 
+API=ventana_inicio()
+print(API)
+openai.api_key = API
+
 init()
 
 while True:
+
+    
     
     ChatIn = vozIn()
     ChatIn = ChatIn.strip("\n")
-    #ChatIn = ChatIn.to__json()
+ 
     Respuesta_p0wa=consulta(ChatIn,1)
     print(Respuesta_p0wa)
 
